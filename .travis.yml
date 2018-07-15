@@ -21,6 +21,14 @@ script:
   - echo "int main(int argc, char* argv[])" >> /tmp/x.c
   - echo "#endif" >> /tmp/x.c
   - echo "{ (void)argv; return argc-1;}" >> /tmp/x.c
+  - ls hein*
   - echo "run" | lldb "/usr/local/bin/mulle-clang" -- -cc1 -o hein.o -x c hein.c
+  - ls hein*
+  - rm hein.o
+  - /usr/local/bin/mulle-clang -cc1 -o hein.o -x c hein.c
+  - ls hein*
+  - rm hein.o
   - /usr/local/bin/mulle-clang -c -### -v /tmp/x.c
+  - ls hein*
+  - rm hein.o
 
